@@ -15,10 +15,17 @@ for (let i = 0; i < chars.length; i++) {
 }
 
 export const encode = function (arraybuffer, byteOffset, length) {
-    const bytes = new Uint8Array(arraybuffer, byteOffset, length),
-        len = bytes.length;
-    let base64 = '';
+    if (length === null || length === undefined) {
+        length = arraybuffer.byteLength; // Needed for Safari
+    }
+    const bytes = new Uint8Array(
+        arraybuffer,
+        byteOffset || 0, // Default needed for Safari
+        length
+    );
+    const len = bytes.length;
 
+    let base64 = '';
     for (let i = 0; i < len; i += 3) {
         base64 += chars[bytes[i] >> 2];
         base64 += chars[((bytes[i] & 3) << 4) | (bytes[i + 1] >> 4)];

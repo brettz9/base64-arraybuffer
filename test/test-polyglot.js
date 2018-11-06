@@ -40,8 +40,13 @@
   }
 
   var encode = function encode(arraybuffer, byteOffset, length) {
-    var bytes = new Uint8Array(arraybuffer, byteOffset, length),
-        len = bytes.length;
+    if (length === null || length === undefined) {
+      length = arraybuffer.byteLength; // Needed for Safari
+    }
+
+    var bytes = new Uint8Array(arraybuffer, byteOffset || 0, // Default needed for Safari
+    length);
+    var len = bytes.length;
     var base64 = '';
 
     for (var _i = 0; _i < len; _i += 3) {

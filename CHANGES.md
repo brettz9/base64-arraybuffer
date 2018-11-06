@@ -1,5 +1,10 @@
 # base64-arraybuffer-es6
 
+## 0.4.2
+
+- Fix: Overcome Safari's idiosyncrasies with `Uint8Array` constructor
+    (@dfahlander).
+
 ## 0.4.1
 
 - Fix `.npmignore` to include proper files in package
