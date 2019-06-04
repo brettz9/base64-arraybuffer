@@ -1,8 +1,19 @@
-{
+module.exports = {
   "extends": "standard",
   "parserOptions": {
       "sourceType": "module"
   },
+  "overrides": [
+      {
+          "files": "test/**.js",
+          env: {
+              mocha: true
+          },
+          globals: {
+              assert: 'readonly'
+          }
+      }
+  ],
   "rules": {
     "semi": [2, "always"],
     "indent": ["error", 4, {"outerIIFEBody": 0}],
@@ -12,4 +23,4 @@
     "prefer-const": 2,
     "object-curly-spacing": ["error", "never"]
   }
-}
+};

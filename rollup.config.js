@@ -20,14 +20,4 @@ export default [{
     plugins: [
         babel()
     ]
-}, {
-    input: 'test/test.js',
-    output: {
-        file: 'test/test-polyglot.js',
-        format: 'umd',
-        name: 'Base64ArrayBufferTests'
-    },
-    plugins: [
-        babel()
-    ]
 }];

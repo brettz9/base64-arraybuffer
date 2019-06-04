@@ -1,8 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (factory((global.Base64ArrayBuffer = {})));
-}(this, (function (exports) { 'use strict';
+    (global = global || self, factory(global.Base64ArrayBuffer = {}));
+}(this, function (exports) { 'use strict';
 
     /*
      * base64-arraybuffer
@@ -74,9 +74,9 @@
       return arraybuffer;
     };
 
-    exports.encode = encode;
     exports.decode = decode;
+    exports.encode = encode;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));

@@ -1,25 +1,5 @@
 import {encode, decode} from '../src/base64-arraybuffer.js';
 
-/*
-======== A Handy Little Nodeunit Reference ========
-https://github.com/caolan/nodeunit
-
-Test methods:
-test.expect(numAssertions)
-test.done()
-Test assertions:
-test.ok(value, [message])
-test.equal(actual, expected, [message])
-test.notEqual(actual, expected, [message])
-test.deepEqual(actual, expected, [message])
-test.notDeepEqual(actual, expected, [message])
-test.strictEqual(actual, expected, [message])
-test.notStrictEqual(actual, expected, [message])
-test.throws(block, [error], [message])
-test.doesNotThrow(block, [error], [message])
-test.ifError(value)
-*/
-
 function stringArrayBuffer (str) {
     const buffer = new ArrayBuffer(str.length);
     const bytes = new Uint8Array(buffer);
@@ -49,55 +29,50 @@ function testArrayBuffers (buffer1, buffer2) {
     return true;
 }
 
-export const base64tests = {
-    encode (test) {
-        test.expect(4);
-
-        test.equal(
+describe('base64-arraybuffer tests', function () {
+    it('encode', () => {
+        assert.strictEqual(
             encode(stringArrayBuffer('Hello world')),
             'SGVsbG8gd29ybGQ=',
             "encode 'Hello world'"
         );
-        test.equal(
+        assert.strictEqual(
             encode(stringArrayBuffer('Man')),
             'TWFu',
             "encode 'Man'"
         );
-        test.equal(
+        assert.strictEqual(
             encode(stringArrayBuffer('Ma')),
             'TWE=',
             "encode 'Ma'"
         );
-        test.equal(
+        assert.strictEqual(
             encode(stringArrayBuffer('Hello worlds!')),
             'SGVsbG8gd29ybGRzIQ==',
             "encode 'Hello worlds!'"
         );
-        test.done();
-    },
-    decode (test) {
-        test.expect(3);
-        test.ok(
+    });
+    it('decode', () => {
+        assert(
             testArrayBuffers(
                 decode('TWFu'),
                 stringArrayBuffer('Man')
             ),
             "decode 'Man'"
         );
-        test.ok(
+        assert(
             testArrayBuffers(
                 decode('SGVsbG8gd29ybGQ='),
                 stringArrayBuffer('Hello world')
             ),
             "decode 'Hello world'"
         );
-        test.ok(
+        assert(
             testArrayBuffers(
                 decode('SGVsbG8gd29ybGRzIQ=='),
                 stringArrayBuffer('Hello worlds!')
             ),
             "decode 'Hello worlds!'"
         );
-        test.done();
-    }
-};
+    });
+});

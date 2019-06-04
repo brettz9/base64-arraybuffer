@@ -68,4 +68,4 @@ var decode = function decode(base64) {
   return arraybuffer;
 };
 
-export { encode, decode };
+export { decode, encode };
