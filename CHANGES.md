@@ -1,5 +1,9 @@
 # base64-arraybuffer-es6
 
+## ?
+
+- npm: Update devDep.
+
 ## 0.5.0
 
 - Breaking change: Drop yarn

@@ -54,7 +54,7 @@
     "mocha": "^6.1.4",
     "node-static": "0.7.11",
     "open-cli": "^5.0.0",
-    "rollup": "1.13.1",
+    "rollup": "1.15.1",
     "rollup-plugin-babel": "^4.3.2"
   },
   "keywords": [
