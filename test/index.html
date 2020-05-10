@@ -15,6 +15,7 @@
         <script src="../node_modules/chai/chai.js"></script>
 
         <script>
+        /* globals mocha, chai */
         mocha.setup('bdd');
         window.assert = chai.assert;
         mocha.globals(['Base64ArrayBuffer']);
@@ -28,6 +29,7 @@
         <div id="mocha"></div>
 
         <script type="module">
+        /* globals mocha */
         mocha.run();
         </script>
     </body>

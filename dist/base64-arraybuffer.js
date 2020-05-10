@@ -2,7 +2,9 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
     (global = global || self, factory(global.Base64ArrayBuffer = {}));
-}(this, function (exports) { 'use strict';
+}(this, (function (exports) { 'use strict';
+
+    /* eslint-disable node/no-unsupported-features/es-syntax */
 
     /*
      * base64-arraybuffer
@@ -18,14 +20,21 @@
     for (var i = 0; i < chars.length; i++) {
       lookup[chars.charCodeAt(i)] = i;
     }
+    /**
+     * @param {ArrayBuffer} arraybuffer
+     * @param {Integer} byteOffset
+     * @param {Integer} lngth
+     * @returns {string}
+     */
 
-    var encode = function encode(arraybuffer, byteOffset, length) {
-      if (length === null || length === undefined) {
-        length = arraybuffer.byteLength; // Needed for Safari
+
+    var encode = function encode(arraybuffer, byteOffset, lngth) {
+      if (lngth === null || lngth === undefined) {
+        lngth = arraybuffer.byteLength; // Needed for Safari
       }
 
       var bytes = new Uint8Array(arraybuffer, byteOffset || 0, // Default needed for Safari
-      length);
+      lngth);
       var len = bytes.length;
       var base64 = '';
 
@@ -37,13 +46,18 @@
       }
 
       if (len % 3 === 2) {
-        base64 = base64.substring(0, base64.length - 1) + '=';
+        base64 = base64.slice(0, -1) + '=';
       } else if (len % 3 === 1) {
-        base64 = base64.substring(0, base64.length - 2) + '==';
+        base64 = base64.slice(0, -2) + '==';
       }
 
       return base64;
     };
+    /**
+     * @param {string} base64
+     * @returns {ArrayBuffer}
+     */
+
     var decode = function decode(base64) {
       var len = base64.length;
       var bufferLength = base64.length * 0.75;
@@ -79,4 +93,4 @@
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));

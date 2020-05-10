@@ -1,8 +1,15 @@
 # base64-arraybuffer-es6
 
-## ?
+## 0.6.0
 
-- npm: Update devDep.
+- Breaking change: Bump to at least Node 0.10.0 (had been using features not supported)
+- Linting: Check RC file
+- Linting: Use ash-nazg and check HTML and MD
+- Testing: Add nyc for coverage
+- Testing: Add test of non-null length (brings to 100% coverage)
+- Testing: Use register-assert
+- npm: Avoid deprecated rollup-plugin-babel in favor of rollup/plugin-babel
+- npm: Update core-js-bundle peerDep. and devDeps
 
 ## 0.5.0
 

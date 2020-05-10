@@ -1,5 +1,6 @@
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [{
     input: 'src/base64-arraybuffer.js',
     output: {
@@ -8,7 +9,9 @@ export default [{
         name: 'Base64ArrayBuffer'
     },
     plugins: [
-        babel()
+        babel({
+            babelHelpers: 'bundled'
+        })
     ]
 }, {
     input: 'src/base64-arraybuffer.js',
@@ -18,6 +21,8 @@ export default [{
         name: 'Base64ArrayBuffer'
     },
     plugins: [
-        babel()
+        babel({
+            babelHelpers: 'bundled'
+        })
     ]
 }];

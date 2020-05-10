@@ -1,3 +1,4 @@
+/* eslint-disable node/no-unsupported-features/es-syntax */
 /*
  * base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer
@@ -6,7 +7,8 @@
  * Licensed under the MIT license.
  */
 
-const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+const chars =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 // Use a lookup table to find the index.
 const lookup = new Uint8Array(256);
@@ -14,14 +16,20 @@ for (let i = 0; i < chars.length; i++) {
     lookup[chars.charCodeAt(i)] = i;
 }
 
-export const encode = function (arraybuffer, byteOffset, length) {
-    if (length === null || length === undefined) {
-        length = arraybuffer.byteLength; // Needed for Safari
+/**
+ * @param {ArrayBuffer} arraybuffer
+ * @param {Integer} byteOffset
+ * @param {Integer} lngth
+ * @returns {string}
+ */
+export const encode = function (arraybuffer, byteOffset, lngth) {
+    if (lngth === null || lngth === undefined) {
+        lngth = arraybuffer.byteLength; // Needed for Safari
     }
     const bytes = new Uint8Array(
         arraybuffer,
         byteOffset || 0, // Default needed for Safari
-        length
+        lngth
     );
     const len = bytes.length;
 
@@ -34,14 +42,18 @@ export const encode = function (arraybuffer, byteOffset, length) {
     }
 
     if ((len % 3) === 2) {
-        base64 = base64.substring(0, base64.length - 1) + '=';
+        base64 = base64.slice(0, -1) + '=';
     } else if (len % 3 === 1) {
-        base64 = base64.substring(0, base64.length - 2) + '==';
+        base64 = base64.slice(0, -2) + '==';
     }
 
     return base64;
 };
 
+/**
+ * @param {string} base64
+ * @returns {ArrayBuffer}
+ */
 export const decode = function (base64) {
     const len = base64.length;
 

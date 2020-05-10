@@ -1,16 +1,27 @@
+/* eslint-disable node/no-unsupported-features/es-syntax */
+
 import {encode, decode} from '../src/base64-arraybuffer.js';
 
+/**
+ * @param {string} str
+ * @returns {ArrayBuffer}
+ */
 function stringArrayBuffer (str) {
     const buffer = new ArrayBuffer(str.length);
     const bytes = new Uint8Array(buffer);
 
-    [...str].forEach((str, i) => {
-        bytes[i] = str.charCodeAt(0);
+    [...str].forEach((st, i) => {
+        bytes[i] = st.charCodeAt(0);
     });
 
     return buffer;
 }
 
+/**
+ * @param {ArrayBuffer} buffer1
+ * @param {ArrayBuffer} buffer2
+ * @returns {boolean}
+ */
 function testArrayBuffers (buffer1, buffer2) {
     const len1 = buffer1.byteLength;
     const len2 = buffer2.byteLength;
@@ -47,11 +58,17 @@ describe('base64-arraybuffer tests', function () {
             "encode 'Ma'"
         );
         assert.strictEqual(
+            encode(stringArrayBuffer('Maaaaan!'), null, 2),
+            'TWE=',
+            "encode 'Ma'"
+        );
+        assert.strictEqual(
             encode(stringArrayBuffer('Hello worlds!')),
             'SGVsbG8gd29ybGRzIQ==',
             "encode 'Hello worlds!'"
         );
     });
+
     it('decode', () => {
         assert(
             testArrayBuffers(
