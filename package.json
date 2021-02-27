@@ -1,6 +1,6 @@
 {
   "name": "base64-arraybuffer-es6",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Encode/decode base64 data into ArrayBuffers",
   "homepage": "https://github.com/brettz9/base64-arraybuffer",
   "author": "Brett Zamir",
