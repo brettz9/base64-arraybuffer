@@ -1,10 +1,7 @@
 'use strict';
 
 module.exports = {
-    extends: 'ash-nazg/sauron-node',
-    parserOptions: {
-        sourceType: 'module'
-    },
+    extends: 'ash-nazg/sauron-node-overrides',
     overrides: [
         {
             files: 'test/**.js',
@@ -16,18 +13,9 @@ module.exports = {
             }
         },
         {
-            files: ['*.md', '*.html'],
+            files: ['*.md/*.js', '*.html'],
             rules: {
                 'import/unambiguous': 0
-            }
-        },
-        {
-            files: '.eslintrc.js',
-            extends: [
-                'plugin:node/recommended-script'
-            ],
-            rules: {
-                'import/no-commonjs': 0
             }
         }
     ],

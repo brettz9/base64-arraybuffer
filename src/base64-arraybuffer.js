@@ -1,4 +1,3 @@
-/* eslint-disable node/no-unsupported-features/es-syntax */
 /*
  * base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer

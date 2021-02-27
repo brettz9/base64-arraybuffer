@@ -1,5 +1,20 @@
 # base64-arraybuffer-es6
 
+## 0.7.0
+
+**User-focused:**
+- Breaking change: Minimum of Node 6
+- Breaking change: Remove `peerDependencies`
+
+**Dev-focused:**
+- Linting: As per latest ash-nazg
+- Linting: Drop remarkrc
+- Babel: Use recommmended `json` extension
+- Editorconfig: Enforce JSON spacing
+- npm: Switch to pnpm
+- npm: Switch server to http-server
+- npm: Update devDeps (including changing updated ash-nazg peerDeps.)
+
 ## 0.6.0
 
 - Breaking change: Bump to at least Node 0.10.0 (had been using features not supported)

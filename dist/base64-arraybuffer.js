@@ -1,10 +1,8 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (global = global || self, factory(global.Base64ArrayBuffer = {}));
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.Base64ArrayBuffer = {}));
 }(this, (function (exports) { 'use strict';
-
-    /* eslint-disable node/no-unsupported-features/es-syntax */
 
     /*
      * base64-arraybuffer

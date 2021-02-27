@@ -5,17 +5,13 @@
         <title>base64-arraybuffer-es6 Tests</title>
         <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
 
-        <!-- Babel dependencies -->
-        <script src="../node_modules/core-js-bundle/minified.js"></script>
-        <!-- <script src="../node_modules/regenerator-runtime/runtime.js"></script> -->
-
         <!-- Testing dependencies -->
         <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
         <script src="../node_modules/mocha/mocha.js"></script>
         <script src="../node_modules/chai/chai.js"></script>
 
         <script>
-        /* globals mocha, chai */
+        /* globals mocha, chai -- Available as globals */
         mocha.setup('bdd');
         window.assert = chai.assert;
         mocha.globals(['Base64ArrayBuffer']);
@@ -29,7 +25,7 @@
         <div id="mocha"></div>
 
         <script type="module">
-        /* globals mocha */
+        /* globals mocha -- Available as globals */
         mocha.run();
         </script>
     </body>

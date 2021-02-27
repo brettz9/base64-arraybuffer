@@ -1,5 +1,3 @@
-/* eslint-disable node/no-unsupported-features/es-syntax */
-
 import {encode, decode} from '../src/base64-arraybuffer.js';
 
 /**
