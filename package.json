@@ -34,6 +34,7 @@
   "scripts": {
     "start": "http-server -p 8093",
     "eslint": "eslint --ext js,md,html .",
+    "lint": "npm run eslint --",
     "build": "rollup -c",
     "mocha": "mocha --require esm --require chai/register-assert.js test/*.js",
     "test": "npm run eslint && npm run build && c8 npm run mocha",
