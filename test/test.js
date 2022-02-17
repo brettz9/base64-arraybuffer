@@ -8,9 +8,9 @@ function stringArrayBuffer (str) {
     const buffer = new ArrayBuffer(str.length);
     const bytes = new Uint8Array(buffer);
 
-    [...str].forEach((st, i) => {
-        bytes[i] = st.charCodeAt(0);
-    });
+    for (let i = 0, sl = str.length; i < sl; i++) {
+        bytes[i] = str.codePointAt(i);
+    }
 
     return buffer;
 }

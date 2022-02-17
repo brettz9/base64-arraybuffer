@@ -1,12 +1,24 @@
 # base64-arraybuffer-es6
 
+## 1.0.0
+
+### User-focused
+
+- Breaking change: Requires ^12.22.0, ^14.17.0, or 16+
+- Enhancement: ESM
+
+### Dev-focused
+
+- Maintenance: Add `.editorconfig`
+- npm: Update devDeps.
+
 ## 0.7.0
 
-**User-focused:**
+### User-focused
 - Breaking change: Minimum of Node 6
 - Breaking change: Remove `peerDependencies`
 
-**Dev-focused:**
+### Dev-focused
 - Linting: As per latest ash-nazg
 - Linting: Drop remarkrc
 - Babel: Use recommmended `json` extension

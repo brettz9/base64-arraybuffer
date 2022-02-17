@@ -10,7 +10,7 @@ var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'; 
 var lookup = new Uint8Array(256);
 
 for (var i = 0; i < chars.length; i++) {
-  lookup[chars.charCodeAt(i)] = i;
+  lookup[chars.codePointAt(i)] = i;
 }
 /**
  * @param {ArrayBuffer} arraybuffer
@@ -68,10 +68,10 @@ var decode = function decode(base64) {
       bytes = new Uint8Array(arraybuffer);
 
   for (var _i2 = 0; _i2 < len; _i2 += 4) {
-    encoded1 = lookup[base64.charCodeAt(_i2)];
-    encoded2 = lookup[base64.charCodeAt(_i2 + 1)];
-    encoded3 = lookup[base64.charCodeAt(_i2 + 2)];
-    encoded4 = lookup[base64.charCodeAt(_i2 + 3)];
+    encoded1 = lookup[base64.codePointAt(_i2)];
+    encoded2 = lookup[base64.codePointAt(_i2 + 1)];
+    encoded3 = lookup[base64.codePointAt(_i2 + 2)];
+    encoded4 = lookup[base64.codePointAt(_i2 + 3)];
     bytes[p++] = encoded1 << 2 | encoded2 >> 4;
     bytes[p++] = (encoded2 & 15) << 4 | encoded3 >> 2;
     bytes[p++] = (encoded3 & 3) << 6 | encoded4 & 63;

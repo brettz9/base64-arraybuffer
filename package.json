@@ -1,9 +1,10 @@
 {
   "name": "base64-arraybuffer-es6",
-  "version": "0.7.0",
+  "version": "1.0.0",
   "description": "Encode/decode base64 data into ArrayBuffers",
   "homepage": "https://github.com/brettz9/base64-arraybuffer",
   "author": "Brett Zamir",
+  "type": "module",
   "contributors": [
     {
       "name": "Niklas von Hertzen",
@@ -19,17 +20,23 @@
     "url": "https://github.com/brettz9/base64-arraybuffer/issues"
   },
   "license": "MIT",
-  "main": "dist/base64-arraybuffer.js",
-  "module": "dist/base64-arraybuffer-es.js",
+  "main": "./dist/base64-arraybuffer.cjs",
+  "module": "./dist/base64-arraybuffer-es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/base64-arraybuffer-es.js",
+      "require": "./dist/base64-arraybuffer.cjs"
+    }
+  },
   "engines": {
-    "node": ">=6.0.0"
+    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
   },
   "scripts": {
     "start": "http-server -p 8093",
     "eslint": "eslint --ext js,md,html .",
     "build": "rollup -c",
-    "mocha": "mocha --require esm --require chai/register-assert test/*.js",
-    "test": "npm run eslint && npm run build && nyc npm run mocha",
+    "mocha": "mocha --require esm --require chai/register-assert.js test/*.js",
+    "test": "npm run eslint && npm run build && c8 npm run mocha",
     "browser-test": "npm run eslint && npm run build && open-cli http://127.0.0.1:8093/test/ && npm start"
   },
   "browserslist": [
@@ -37,34 +44,34 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.8",
-    "@brettz9/eslint-plugin": "^1.0.3",
+    "@babel/core": "^7.17.4",
+    "@babel/preset-env": "^7.16.11",
+    "@brettz9/eslint-plugin": "^1.0.4",
     "@rollup/plugin-babel": "^5.3.0",
-    "chai": "^4.3.0",
-    "eslint": "^7.20.0",
-    "eslint-config-ash-nazg": "^29.8.0",
-    "eslint-config-standard": "^16.0.2",
+    "c8": "^7.11.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.9.0",
+    "eslint-config-ash-nazg": "^32.4.0",
+    "eslint-config-standard": "^16.0.3",
     "eslint-plugin-array-func": "^3.1.7",
-    "eslint-plugin-compat": "^3.9.0",
+    "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-html": "^6.1.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsdoc": "^32.2.0",
-    "eslint-plugin-markdown": "^2.0.0",
-    "eslint-plugin-no-unsanitized": "^3.1.4",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsdoc": "^37.9.2",
+    "eslint-plugin-markdown": "^2.2.1",
+    "eslint-plugin-no-unsanitized": "^4.0.1",
     "eslint-plugin-no-use-extend-native": "^0.5.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-radar": "^0.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-sonarjs": "^0.11.0",
     "eslint-plugin-standard": "^4.1.0",
-    "eslint-plugin-unicorn": "^28.0.2",
+    "eslint-plugin-unicorn": "^41.0.0",
     "esm": "^3.2.25",
-    "http-server": "^0.12.3",
-    "mocha": "^8.3.0",
-    "nyc": "^15.1.0",
-    "open-cli": "^6.0.1",
-    "rollup": "2.40.0"
+    "http-server": "^14.1.0",
+    "mocha": "^9.2.0",
+    "open-cli": "^7.0.1",
+    "rollup": "2.67.2"
   },
   "keywords": [
     "base64",
