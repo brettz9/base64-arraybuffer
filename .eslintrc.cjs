@@ -4,15 +4,6 @@ module.exports = {
     extends: 'ash-nazg/sauron-node-overrides',
     overrides: [
         {
-            files: 'test/**.js',
-            env: {
-                mocha: true
-            },
-            globals: {
-                assert: 'readonly'
-            }
-        },
-        {
             files: ['*.md/*.js', '*.html'],
             rules: {
                 'import/unambiguous': 0

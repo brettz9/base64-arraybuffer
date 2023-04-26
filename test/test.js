@@ -1,3 +1,9 @@
+/* eslint-disable no-shadow -- Needed here */
+import assert from 'node:assert/strict';
+
+import {describe, it} from 'mocha';
+/* eslint-enable no-shadow -- Needed here */
+
 import {encode, decode} from '../src/base64-arraybuffer.js';
 
 /**
@@ -9,7 +15,7 @@ function stringArrayBuffer (str) {
     const bytes = new Uint8Array(buffer);
 
     for (let i = 0, sl = str.length; i < sl; i++) {
-        bytes[i] = str.codePointAt(i);
+        bytes[i] = /** @type {number} */ (str.codePointAt(i));
     }
 
     return buffer;
@@ -39,7 +45,7 @@ function testArrayBuffers (buffer1, buffer2) {
 }
 
 describe('base64-arraybuffer tests', function () {
-    it('encode', () => {
+    it('encode', function () {
         assert.strictEqual(
             encode(stringArrayBuffer('Hello world')),
             'SGVsbG8gd29ybGQ=',
@@ -56,7 +62,7 @@ describe('base64-arraybuffer tests', function () {
             "encode 'Ma'"
         );
         assert.strictEqual(
-            encode(stringArrayBuffer('Maaaaan!'), null, 2),
+            encode(stringArrayBuffer('Maaaaan!'), undefined, 2),
             'TWE=',
             "encode 'Ma'"
         );
@@ -67,7 +73,7 @@ describe('base64-arraybuffer tests', function () {
         );
     });
 
-    it('decode', () => {
+    it('decode', function () {
         assert(
             testArrayBuffers(
                 decode('TWFu'),
