@@ -26,8 +26,8 @@
 
     /**
      * @param {ArrayBuffer} arraybuffer
-     * @param {Integer} byteOffset
-     * @param {Integer} lngth
+     * @param {Integer} [byteOffset]
+     * @param {Integer} [lngth]
      * @returns {string}
      */
     var encode = function encode(arraybuffer, byteOffset, lngth) {

@@ -1,5 +1,11 @@
 # base64-arraybuffer-es6
 
+## 2.0.1
+
+### User-focused
+
+- fix: ensure 2nd and 3rd argument `encode` types are optional
+
 ## 2.0.0
 
 ### User-focused

@@ -21,8 +21,8 @@ for (let i = 0; i < chars.length; i++) {
 
 /**
  * @param {ArrayBuffer} arraybuffer
- * @param {Integer} byteOffset
- * @param {Integer} lngth
+ * @param {Integer} [byteOffset]
+ * @param {Integer} [lngth]
  * @returns {string}
  */
 export const encode = function (arraybuffer, byteOffset, lngth) {

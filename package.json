@@ -1,6 +1,6 @@
 {
   "name": "base64-arraybuffer-es6",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Encode/decode base64 data into ArrayBuffers",
   "homepage": "https://github.com/brettz9/base64-arraybuffer",
   "author": "Brett Zamir",
@@ -73,7 +73,8 @@
     "http-server": "^14.1.1",
     "mocha": "^10.2.0",
     "open-cli": "^7.2.0",
-    "rollup": "3.21.0"
+    "rollup": "3.21.0",
+    "typescript": "^5.0.4"
   },
   "keywords": [
     "base64",
