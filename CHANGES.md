@@ -1,5 +1,10 @@
 # base64-arraybuffer-es6
 
+## 1.1.0
+
+fix: throw if decode string length not divisible by 4
+
+
 ## 1.0.0
 
 ### User-focused

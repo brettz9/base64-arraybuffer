@@ -2,8 +2,12 @@
  * base64-arraybuffer
  * https://github.com/niklasvh/base64-arraybuffer
  *
- * Copyright (c) 2017 Brett Zamir, 2012 Niklas von Hertzen
+ * Copyright (c) 2017-2023 Brett Zamir, 2012 Niklas von Hertzen
  * Licensed under the MIT license.
+ */
+
+/**
+ * @typedef {number} Integer
  */
 
 const chars =
@@ -12,7 +16,7 @@ const chars =
 // Use a lookup table to find the index.
 const lookup = new Uint8Array(256);
 for (let i = 0; i < chars.length; i++) {
-    lookup[chars.codePointAt(i)] = i;
+    lookup[/** @type {number} */ (chars.codePointAt(i))] = i;
 }
 
 /**
@@ -56,6 +60,10 @@ export const encode = function (arraybuffer, byteOffset, lngth) {
 export const decode = function (base64) {
     const len = base64.length;
 
+    if (len % 4) {
+        throw new Error('Bad base64 length: not divisible by four');
+    }
+
     let bufferLength = base64.length * 0.75;
     let p = 0;
     let encoded1, encoded2, encoded3, encoded4;
@@ -71,10 +79,12 @@ export const decode = function (base64) {
         bytes = new Uint8Array(arraybuffer);
 
     for (let i = 0; i < len; i += 4) {
-        encoded1 = lookup[base64.codePointAt(i)];
-        encoded2 = lookup[base64.codePointAt(i + 1)];
-        encoded3 = lookup[base64.codePointAt(i + 2)];
-        encoded4 = lookup[base64.codePointAt(i + 3)];
+        // We know the result will not be undefined, as we have a text
+        //   length divisible by four
+        encoded1 = lookup[/** @type {number} */ (base64.codePointAt(i))];
+        encoded2 = lookup[/** @type {number} */ (base64.codePointAt(i + 1))];
+        encoded3 = lookup[/** @type {number} */ (base64.codePointAt(i + 2))];
+        encoded4 = lookup[/** @type {number} */ (base64.codePointAt(i + 3))];
 
         bytes[p++] = (encoded1 << 2) | (encoded2 >> 4);
         bytes[p++] = ((encoded2 & 15) << 4) | (encoded3 >> 2);

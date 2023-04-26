@@ -89,5 +89,12 @@ describe('base64-arraybuffer tests', function () {
             ),
             "decode 'Hello worlds!'"
         );
+        try {
+            decode('TWF');
+        } catch (err) {
+            assert(true, 'Threw error as expected');
+            return;
+        }
+        assert(false);
     });
 });
