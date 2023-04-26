@@ -1,9 +1,15 @@
 # base64-arraybuffer-es6
 
-## 1.1.0
+## 2.0.0
 
-fix: throw if decode string length not divisible by 4
+### User-focused
 
+- fix: throw if decode string length not divisible by 4
+- feat: provide TypeScript typings
+
+### Dev-focused
+
+- chore: update devDeps.
 
 ## 1.0.0
 
