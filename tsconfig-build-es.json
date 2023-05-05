@@ -4,7 +4,7 @@
     "moduleResolution": "nodenext",
     "module": "esnext",
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "noEmit": false,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
@@ -15,6 +15,6 @@
     "target": "es6",
     "outDir": "dist"
   },
-  "include": ["src/**/*.js"],
+  "include": ["dist/base64-arraybuffer-es.js"],
   "exclude": ["node_modules"]
 }

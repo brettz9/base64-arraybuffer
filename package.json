@@ -1,6 +1,6 @@
 {
   "name": "base64-arraybuffer-es6",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Encode/decode base64 data into ArrayBuffers",
   "homepage": "https://github.com/brettz9/base64-arraybuffer",
   "author": "Brett Zamir",
@@ -25,8 +25,14 @@
   "module": "./dist/base64-arraybuffer-es.js",
   "exports": {
     ".": {
-      "import": "./dist/base64-arraybuffer-es.js",
-      "require": "./dist/base64-arraybuffer.cjs"
+      "import": {
+        "types": "./dist/base64-arraybuffer-es.d.ts",
+        "default": "./dist/base64-arraybuffer-es.js"
+      },
+      "require": {
+        "types": "./dist/base64-arraybuffer.d.ts",
+        "default": "./dist/base64-arraybuffer.cjs"
+      }
     }
   },
   "engines": {
@@ -37,7 +43,7 @@
     "start": "http-server -p 8093",
     "eslint": "eslint --ext js,md,html .",
     "lint": "npm run eslint --",
-    "build": "rollup -c && tsc --p tsconfig-build.json",
+    "build": "rollup -c && tsc --p tsconfig-build.json && tsc --p tsconfig-build-es.json",
     "mocha": "mocha test/*.js",
     "test": "npm run eslint && npm run build && c8 npm run mocha",
     "browser-test": "npm run eslint && npm run build && open-cli http://127.0.0.1:8093/test/ && npm start"

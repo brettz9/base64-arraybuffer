@@ -1,5 +1,9 @@
 # base64-arraybuffer-es6
 
+## 3.0.0
+
+- fix: update to `nodenext` `moduleResolution`
+
 ## 2.0.1
 
 ### User-focused
