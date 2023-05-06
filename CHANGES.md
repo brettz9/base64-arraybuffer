@@ -1,5 +1,10 @@
 # base64-arraybuffer-es6
 
+## 3.0.1
+
+- chore: build separate declaration files off same file but put
+  in separate directories
+
 ## 3.0.0
 
 - fix: update to `nodenext` `moduleResolution`
