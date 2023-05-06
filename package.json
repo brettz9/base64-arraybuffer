@@ -5,7 +5,7 @@
   "homepage": "https://github.com/brettz9/base64-arraybuffer",
   "author": "Brett Zamir",
   "type": "module",
-  "types": "./dist/base64-arraybuffer.d.ts",
+  "types": "./dist/types/cjs/base64-arraybuffer.d.ts",
   "contributors": [
     {
       "name": "Niklas von Hertzen",
@@ -26,11 +26,11 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/base64-arraybuffer-es.d.ts",
+        "types": "./dist/types/esm/base64-arraybuffer.d.ts",
         "default": "./dist/base64-arraybuffer-es.js"
       },
       "require": {
-        "types": "./dist/base64-arraybuffer.d.ts",
+        "types": "./dist/types/cjs/base64-arraybuffer.d.ts",
         "default": "./dist/base64-arraybuffer.cjs"
       }
     }

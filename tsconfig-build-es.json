@@ -4,17 +4,18 @@
     "moduleResolution": "nodenext",
     "module": "NodeNext",
     "allowJs": true,
-    "checkJs": false,
+    "checkJs": true,
     "noEmit": false,
     "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationMap": true,
+    "declarationDir": "./dist/types/esm",
     "emitDeclarationOnly": true,
     "strict": true,
     "target": "es6",
     "outDir": "dist"
   },
-  "include": ["dist/base64-arraybuffer-es.js"],
+  "include": ["src/**/*.js"],
   "exclude": ["node_modules"]
 }
