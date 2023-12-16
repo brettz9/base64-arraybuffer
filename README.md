@@ -16,7 +16,7 @@ Install the module with: `npm install base64-arraybuffer-es6`
 The library encodes and decodes base64 to and from ArrayBuffers
 
  - __encode(buffer, byteOffset, length)__ - Encodes `ArrayBuffer` into base64 string
- - __decode(str)__ - Decodes base64 string to `ArrayBuffer`
+ - __decode(str [, ArrayBufferOptions])__ - Decodes base64 string to `ArrayBuffer`
 
 ## License
 

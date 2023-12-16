@@ -1,5 +1,9 @@
 # base64-arraybuffer-es6
 
+## 3.1.0
+
+- feat: add `ArrayBuffer` options as second argument to `decode`
+
 ## 3.0.1
 
 - chore: build separate declaration files off same file but put

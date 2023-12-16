@@ -55,9 +55,12 @@ export const encode = function (arraybuffer, byteOffset, lngth) {
 
 /**
  * @param {string} base64
+ * @param {{
+ *   maxByteLength: number
+ * }} [options]
  * @returns {ArrayBuffer}
  */
-export const decode = function (base64) {
+export const decode = function (base64, options) {
     const len = base64.length;
 
     if (len % 4) {
@@ -75,7 +78,8 @@ export const decode = function (base64) {
         }
     }
 
-    const arraybuffer = new ArrayBuffer(bufferLength),
+    // @ts-expect-error Second argument is not yet standard
+    const arraybuffer = new ArrayBuffer(bufferLength, options),
         bytes = new Uint8Array(arraybuffer);
 
     for (let i = 0; i < len; i += 4) {

@@ -56,9 +56,12 @@
 
     /**
      * @param {string} base64
+     * @param {{
+     *   maxByteLength: number
+     * }} [options]
      * @returns {ArrayBuffer}
      */
-    var decode = function decode(base64) {
+    var decode = function decode(base64, options) {
       var len = base64.length;
       if (len % 4) {
         throw new Error('Bad base64 length: not divisible by four');
@@ -72,7 +75,9 @@
           bufferLength--;
         }
       }
-      var arraybuffer = new ArrayBuffer(bufferLength),
+
+      // @ts-expect-error Second argument is not yet standard
+      var arraybuffer = new ArrayBuffer(bufferLength, options),
         bytes = new Uint8Array(arraybuffer);
       for (var _i2 = 0; _i2 < len; _i2 += 4) {
         // We know the result will not be undefined, as we have a text
