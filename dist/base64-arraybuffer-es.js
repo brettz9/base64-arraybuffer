@@ -15,7 +15,7 @@ var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 // Use a lookup table to find the index.
 var lookup = new Uint8Array(256);
 for (var i = 0; i < chars.length; i++) {
-  lookup[/** @type {number} */chars.codePointAt(i)] = i;
+  lookup[(/** @type {number} */chars.codePointAt(i))] = i;
 }
 
 /**
@@ -28,7 +28,6 @@ var encode = function encode(arraybuffer, byteOffset, lngth) {
   if (lngth === null || lngth === undefined) {
     lngth = arraybuffer.byteLength; // Needed for Safari
   }
-
   var bytes = new Uint8Array(arraybuffer, byteOffset || 0,
   // Default needed for Safari
   lngth);
@@ -63,23 +62,24 @@ var decode = function decode(base64, options) {
   var bufferLength = base64.length * 0.75;
   var p = 0;
   var encoded1, encoded2, encoded3, encoded4;
-  if (base64[base64.length - 1] === '=') {
+  if (base64.at(-1) === '=') {
     bufferLength--;
-    if (base64[base64.length - 2] === '=') {
+    if (base64.at(-2) === '=') {
       bufferLength--;
     }
   }
 
   // @ts-expect-error Second argument is not yet standard
+  // eslint-disable-next-line n/no-unsupported-features/es-syntax -- Optional
   var arraybuffer = new ArrayBuffer(bufferLength, options),
     bytes = new Uint8Array(arraybuffer);
   for (var _i2 = 0; _i2 < len; _i2 += 4) {
     // We know the result will not be undefined, as we have a text
     //   length divisible by four
-    encoded1 = lookup[/** @type {number} */base64.codePointAt(_i2)];
-    encoded2 = lookup[/** @type {number} */base64.codePointAt(_i2 + 1)];
-    encoded3 = lookup[/** @type {number} */base64.codePointAt(_i2 + 2)];
-    encoded4 = lookup[/** @type {number} */base64.codePointAt(_i2 + 3)];
+    encoded1 = lookup[(/** @type {number} */base64.codePointAt(_i2))];
+    encoded2 = lookup[(/** @type {number} */base64.codePointAt(_i2 + 1))];
+    encoded3 = lookup[(/** @type {number} */base64.codePointAt(_i2 + 2))];
+    encoded4 = lookup[(/** @type {number} */base64.codePointAt(_i2 + 3))];
     bytes[p++] = encoded1 << 2 | encoded2 >> 4;
     bytes[p++] = (encoded2 & 15) << 4 | encoded3 >> 2;
     bytes[p++] = (encoded3 & 3) << 6 | encoded4 & 63;

@@ -1,4 +1,5 @@
 /* eslint-disable no-shadow -- Needed here */
+// eslint-disable-next-line n/no-unsupported-features/node-builtins -- Testing
 import assert from 'node:assert/strict';
 
 import {describe, it} from 'mocha';
@@ -97,7 +98,7 @@ describe('base64-arraybuffer tests', function () {
         );
         try {
             decode('TWF');
-        } catch (err) {
+        } catch {
             assert(true, 'Threw error as expected');
             return;
         }

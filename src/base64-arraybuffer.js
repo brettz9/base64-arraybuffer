@@ -71,9 +71,9 @@ export const decode = function (base64, options) {
     let p = 0;
     let encoded1, encoded2, encoded3, encoded4;
 
-    if (base64[base64.length - 1] === '=') {
+    if (base64.at(-1) === '=') {
         bufferLength--;
-        if (base64[base64.length - 2] === '=') {
+        if (base64.at(-2) === '=') {
             bufferLength--;
         }
     }
