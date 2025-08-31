@@ -74,9 +74,6 @@
           bufferLength--;
         }
       }
-
-      // @ts-expect-error Second argument is not yet standard
-      // eslint-disable-next-line n/no-unsupported-features/es-syntax -- Optional
       var arraybuffer = new ArrayBuffer(bufferLength, options),
         bytes = new Uint8Array(arraybuffer);
       for (var _i2 = 0; _i2 < len; _i2 += 4) {

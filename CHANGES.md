@@ -1,5 +1,9 @@
 # base64-arraybuffer-es6
 
+## ?
+
+- chore: update devDeps.
+
 ## 3.1.0
 
 - feat: add `ArrayBuffer` options as second argument to `decode`

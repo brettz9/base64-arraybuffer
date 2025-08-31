@@ -75,21 +75,21 @@ describe('base64-arraybuffer tests', function () {
     });
 
     it('decode', function () {
-        assert(
+        assert.ok(
             testArrayBuffers(
                 decode('TWFu'),
                 stringArrayBuffer('Man')
             ),
             "decode 'Man'"
         );
-        assert(
+        assert.ok(
             testArrayBuffers(
                 decode('SGVsbG8gd29ybGQ='),
                 stringArrayBuffer('Hello world')
             ),
             "decode 'Hello world'"
         );
-        assert(
+        assert.ok(
             testArrayBuffers(
                 decode('SGVsbG8gd29ybGRzIQ=='),
                 stringArrayBuffer('Hello worlds!')
@@ -99,9 +99,9 @@ describe('base64-arraybuffer tests', function () {
         try {
             decode('TWF');
         } catch {
-            assert(true, 'Threw error as expected');
+            assert.ok(true, 'Threw error as expected');
             return;
         }
-        assert(false);
+        assert.ok(false);
     });
 });

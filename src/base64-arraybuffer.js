@@ -78,7 +78,6 @@ export const decode = function (base64, options) {
         }
     }
 
-    // @ts-expect-error Second argument is not yet standard
     const arraybuffer = new ArrayBuffer(bufferLength, options),
         bytes = new Uint8Array(arraybuffer);
 
